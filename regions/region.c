@@ -123,9 +123,19 @@ void* make_new_block(region* root, region* r, size_t size) {
 
 
 inline void* allocate(region* root, size_t s) {
+    
     //align all accesses to 8 bytes
-    size_t size = (size != 0) ? (((s+7) >> 3) << 3) : 8;
-
+    //size_t size = (size != 0) ? (((s+7) >> 3) << 3) : 8;
+    size_t low_bits = s & 0x7;
+    size_t diff = low_bits ? 8 - low_bits : 0;
+    size_t size = s + diff;
+    if (s == 0) {
+	size = 8;
+    }
+    assert(size > 0);
+    assert(size >= s);
+    assert(size % 8 == 0);
+    
     //go to the end of the list
     block* r = root;
     if (root->end != NULL) {
@@ -138,7 +148,8 @@ inline void* allocate(region* root, size_t s) {
     if (rofs + size <= rsize) {
 	r->ofs = rofs + size; //remember that we've allocated
 	char* block_base = (char*) (r+1); //advance past block header
-	return (void*)(block_base + rofs);
+	void* res = (void*)(block_base + rofs);
+	return res;
     } else {
 	//uncommon case: make a new block
 	return make_new_block(root,r,size);

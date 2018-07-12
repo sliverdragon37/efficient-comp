@@ -27,6 +27,7 @@
 *.so
 *.so.*
 *.dylib
+*.hi
 
 # Executables
 *.exe
@@ -55,3 +56,4 @@ dkms.conf
 
 #specific binary names
 speedtest
+list_max

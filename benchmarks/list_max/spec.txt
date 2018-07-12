@@ -1,0 +1,14 @@
+K = 100000000
+
+In order to accurately measure the efficiency of different
+implementations, we need some clear specifications.
+
+The code will generate a list of numbers, where each number is its
+index in the list, as [0,1,2,3,.....]
+
+The code will generate this list, of K elements, where K is defined
+later. It will then calculate the maximum element with a simple
+recursive function, which will be the code which we care about the
+performance of.
+
+

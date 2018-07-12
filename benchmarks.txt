@@ -1,0 +1,26 @@
+In order to evaluate whether a compilation strategy is good, we need
+benchmarks to evaluate it on.
+
+Features where performance is key:
+
+1. Pattern Matching
+2. Object Creation from scratch
+3. Object Creation from other objects
+4. Higher order function operations (map, fold, etc..)
+5. Recursion/iteration
+
+
+Some ideas for benchmarks:
+
+1. max of a list
+2. nat addition
+3. word frequency
+4. binary search tree insert
+5. binary search tree delete
+6. BST lookup
+7. Red/black tree insert/delete/lookup
+8. sorted list merge
+9. string equality comparison
+10. substring matching
+
+
