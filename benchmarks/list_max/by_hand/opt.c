@@ -51,12 +51,12 @@ struct cell* make_nil() {
 	
 }
 
-struct cell* range(long bound, long curr, struct cell* acc, region* r) {
+struct cell* range(long curr, struct cell* acc, region* r) {
     struct cell* n = make_cons(curr,acc,r);
-    if (curr >= bound){
+    if (curr <= 0){
 	return n;
     } else {
-	return range(bound,curr+1,n,r);
+	return range(curr-1,n,r);
     }
 }
 
@@ -78,14 +78,15 @@ long list_max(long curr, struct cell* l) {
 
 int main() {
 
-    int bound = 100000000;
+    //int bound = 100000000;
+    int bound = 2000000;
     
     region* r = new_region();
     
-    struct cell* l = range(bound-1,0,make_nil(),r);
-    printf("Made list l: %p\n", l);
-    printf("FST(l) = %ld, RST(l) = %p\n", FST(l), RST(l));
-    long m = list_max(0,l);
-    printf("%max is: %ld\n", m);
+    struct cell* l = range(bound-1,make_nil(),r);
+    for (int i = 0; i < 10; i++) {
+	long m = list_max(0,l);
+	printf("%ld\n", m);
+    }
     return 0;
 }

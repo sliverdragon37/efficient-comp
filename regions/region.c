@@ -22,8 +22,8 @@
 */
 
 //determined by rough expriment
-//power of 2 seems good, this is 8 pages on a system with 4096 byte pages
-#define BIG_ALLOC_SIZE (1 << 15)
+//power of 2 seems good, 
+#define BIG_ALLOC_SIZE (1 << 16)
 
 //block header struct
 //in practice this will be followed with space to hand out with allocation

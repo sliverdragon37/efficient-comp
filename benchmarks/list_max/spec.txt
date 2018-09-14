@@ -11,4 +11,10 @@ later. It will then calculate the maximum element with a simple
 recursive function, which will be the code which we care about the
 performance of.
 
+In order to isolate the time to create the list from the time to walk
+down it, we should find the maximum element of the list some large
+number of times.
+
+This will be hard to force haskell to do.
+
 
