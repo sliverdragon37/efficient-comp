@@ -9,12 +9,13 @@
 #define CONS_TAG 1
 
 struct cell {
+    char tag;
     long data;
     struct cell* next;
 };
 
-#define TAG(l) (((long)(l)) & 0x1) 
-#define REF(l) (((long)(l)) & (~0x1)) 
+#define TAG(l) ((l) ? (l)->tag : NIL_TAG)
+#define REF(l) (l)
 #define FST(l) (((struct cell*)(REF(l)))->data)
 #define RST(l) (((struct cell*)(REF(l)))->next)
 #define make_nil() ((struct cell*)(NIL_TAG))
@@ -42,13 +43,13 @@ struct cell {
 
 inline struct cell* make_cons(long fst, struct cell* rst, region* r) {
     //make 16 byte heap cell
-    struct cell* x = (struct cell*)allocate(r,sizeof(struct cell));
+    struct cell* res = (struct cell*)allocate(r,sizeof(struct cell));
     //write fst to it
-    x->data = fst;
+    res->data = fst;
     //write rst to it
-    x->next = rst;
-
-    struct cell* res = ((struct cell*) ( ((long) x) | CONS_TAG));
+    res->next = rst;
+    res->tag = CONS_TAG;
+    
     return res;
 	
 }
@@ -64,13 +65,12 @@ struct cell* range(long curr, struct cell* acc, region* r) {
 
 inline struct cell* malloc_make_cons(long fst, struct cell* rst, region* r) {
     //make 16 byte heap cell
-    struct cell* x = (struct cell*)malloc(sizeof(struct cell));
+    struct cell* res = (struct cell*)malloc(sizeof(struct cell));
     //write fst to it
-    x->data = fst;
+    res->data = fst;
     //write rst to it
-    x->next = rst;
-
-    struct cell* res = ((struct cell*) ( ((long) x) | CONS_TAG));
+    res->next = rst;
+    res->tag = CONS_TAG;
     return res;
 	
 }
