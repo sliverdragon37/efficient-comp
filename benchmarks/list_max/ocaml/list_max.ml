@@ -26,6 +26,24 @@ let mrange k = myrange k 0
 
 let _ = print_int (list_max (mrange bound))
 let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 1)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 2)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 3)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 4)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 5)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 6)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 7)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 8)))
+let _ = print_string "\n"
+let _ = print_int (list_max (mrange (bound - 9)))
+let _ = print_string "\n"
     
 
   
