@@ -1,0 +1,7 @@
+- Install latest Coq version
+- Install latest Ocaml version
+- Build lightweight Coq plugin to grab ASTs of definitions
+  + probably just use Oeuf plugin and modify
+- Build middle level language in plugin
+  + support region inference
+- Generate C code

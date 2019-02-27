@@ -1,0 +1,30 @@
+Project 1: ocaml compiler Gallina -> C
+ - Just try to implement something better than existing extraction
+ - use clever enoding of tags + pointers for super fast execution
+ - implement region inference for good garbage collection
+ - Do this first
+
+Project 2 (depends on 1):
+ - Generate same code as above, but verify it
+ - Modify Oeuf frontend to add new types whenever
+ - Modify middle to be simpler
+ - Still use compcert? need to do something to get pointer + tag representation
+ - verify regions for good garbage collection
+
+
+Top Level Language: Gallina
+
+Declarations:
+ - Inductive <name> <type>:
+   | <constructor> <args>
+   | etc...
+
+ - Definition <name> (<args>) : <return type> :=
+      <expression>
+
+Expressions:
+ - Primitive Literal (<bitvector>)
+ - variable
+ - lambda
+ - function application
+
