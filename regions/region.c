@@ -59,7 +59,7 @@ void unmap_entire_region(region* r) {
 block* cache;
 
 void clear_cache() {
-  free_region(cache);
+  unmap_entire_region(cache);
   cache = NULL;
 }
 
